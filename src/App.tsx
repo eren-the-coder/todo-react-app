@@ -34,6 +34,7 @@ const App = () => {
 
       <hr />
 
+      {todos.length === 0 && <p>No tasks found</p>}
       <ul>
         {todos.map(task => (
           <li key={task.id} >

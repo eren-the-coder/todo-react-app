@@ -86,6 +86,11 @@ hr {
   border-top: 1px solid #d1d5db;
 }
 
+hr+p {
+  font-style: italic;
+  text-align: center;
+}
+
 li {
   list-style-type: none;
   background: #f8f9fa;
