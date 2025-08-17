@@ -1,5 +1,7 @@
-import { useReducer, useState } from 'react'
+import { useEffect, useReducer, useState } from 'react'
 import './App.css'
+
+const TODOS_STORAGE_KEY = 'todos'
 interface Task {
   id?: number;
   text: string;
@@ -12,9 +14,22 @@ const App = () => {
   const [text, setText] = useState('');
   const [todos, dispatch] = useReducer(reducer, initialState)
 
+  useEffect(() => {
+    const loadedTasks = loadTasks();
+    if (loadedTasks.length > 0) {
+      loadedTasks.forEach(task => {
+        dispatch({ type: "ADD_TASK", text: task.text, done: task.done, id: task.id })
+      })
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem(TODOS_STORAGE_KEY, JSON.stringify(todos))
+  }, [todos])
+
   const handleAddTask = () => {
     if (!text) return
-    dispatch({ type: 'ADD_TASK', value: text })
+    dispatch({ type: 'ADD_TASK', text: text })
     setText('');
   }
 
@@ -34,6 +49,7 @@ const App = () => {
 
       <hr />
 
+      {todos.length === 0 && <p>No tasks found</p>}
       <ul>
         {todos.map(task => (
           <li key={task.id} >
@@ -62,7 +78,7 @@ const App = () => {
 export default App
 
 type Action = 
-  | { type: 'ADD_TASK', value: string }
+  | { type: 'ADD_TASK', text: string, done?: boolean, id?: number }
   | { type: 'DELETE_TASK', id: number }
   | { type: 'TOGGLE_TASK', id: number }
 
@@ -70,15 +86,28 @@ const reducer = (state: Task[], action: Action) => {
   switch (action.type) {
 
   case 'ADD_TASK':
-    return [...state, { id: Date.now(), text: action.value, done: false }]
+    return [...state, {
+      id: action.id ?? Date.now(),
+      text: action.text,
+      done: action.done ?? false
+    }]
 
   case 'DELETE_TASK':
     return state.filter(task => task.id !== action.id)
 
   case 'TOGGLE_TASK':
-    return state.map(task => (task.id === action.id) ? { ...task, done: !task.done } : task)
+    return state.map(task => (
+      task.id === action.id) ? { ...task, done: !task.done } : task)
 
   default:
     return state
   }
+}
+
+const loadTasks = (): Task[] => {
+  const savedTasks = localStorage.getItem(TODOS_STORAGE_KEY)
+  if (savedTasks) {
+    return JSON.parse(savedTasks)
+  }
+  return []
 }

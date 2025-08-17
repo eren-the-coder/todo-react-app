@@ -86,10 +86,15 @@ hr {
   border-top: 1px solid #d1d5db;
 }
 
+hr+p {
+  font-style: italic;
+  text-align: center;
+}
+
 li {
   list-style-type: none;
   background: #f8f9fa;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   color: #222;
