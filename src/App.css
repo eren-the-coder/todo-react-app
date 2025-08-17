@@ -113,8 +113,98 @@ li button {
   color: red;
   padding: 4px;
   cursor: pointer;
+  background: transparent;
 }
 li button:hover {
   border-radius: 4px;
   background: rgba(192, 192, 192, 0.548);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.header button {
+  border-radius: .5rem;
+  border: 1px solid transparent;
+  background: #f3f4f6;
+  color: #111827;
+  padding: 6px 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.header button:hover {
+  background: #e5e7eb;
+}
+
+.container.light {
+  background: #ffffff;
+  color: #222;
+  border-color: #d1d5db;
+  box-shadow: 0 4px 24px #b0b0b0;
+}
+
+.container.dark {
+  background: #111827; /* slate-900 */
+  color: #e5e7eb;      /* gray-200 */
+  border-color: #374151; /* gray-700 */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.container.dark h1 {
+  color: #f3f4f6; /* gray-100 */
+  text-shadow: none;
+}
+.container.dark h1::after {
+  background: linear-gradient(90deg, #6b7280, #ffffff);
+}
+
+.container.dark .input-group input {
+  background: #1f2937;   /* slate-800 */
+  border-color: #4b5563; /* gray-600 */
+  color: #e5e7eb;        /* gray-200 */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+}
+.container.dark .input-group input:focus {
+  outline: none;
+  border-color: #9ca3af; /* gray-400 */
+  background: #111827;   /* slate-900 */
+}
+
+.container.dark .input-group button {
+  background: #e5e7eb; /* gray-200 */
+  color: #111827;       /* slate-900 */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+}
+.container.dark .input-group button:hover {
+  background: #d1d5db; /* gray-300 */
+}
+
+.container.dark hr {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+  border-top: 1px solid #374151; /* gray-700 */
+}
+
+.container.dark li {
+  background: #1f2937; /* slate-800 */
+  color: #e5e7eb;       /* gray-200 */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+.container.dark li button {
+  color: #f87171; /* red-400 */
+}
+.container.dark li button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.container.dark .header button {
+  background: #374151; /* gray-700 */
+  color: #f3f4f6;      /* gray-100 */
+  border-color: #4b5563;
+}
+.container.dark .header button:hover {
+  background: #4b5563; /* gray-600 */
 }

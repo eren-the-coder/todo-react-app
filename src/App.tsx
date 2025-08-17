@@ -1,5 +1,6 @@
-import { useEffect, useReducer, useState } from 'react'
+import { useContext, useEffect, useReducer, useState } from 'react'
 import './App.css'
+import { ThemeContext } from './Theme';
 
 const TODOS_STORAGE_KEY = 'todos'
 interface Task {
@@ -11,6 +12,7 @@ interface Task {
 const initialState: Task[] = []
 
 const App = () => {
+  const { theme, setTheme } = useContext(ThemeContext)
   const [text, setText] = useState('');
   const [todos, dispatch] = useReducer(reducer, initialState)
 
@@ -34,8 +36,15 @@ const App = () => {
   }
 
   return (
-    <div className='container'>
-      <h1>MyTodo</h1>
+    <div className={`container ${theme}`}>
+      <div className="header">
+        <h1>MyTodo</h1>
+        <button
+          onClick={() => setTheme(prev => (prev === 'light' ? 'dark' : 'light'))}
+        >
+          {theme === 'light' ? 'dark' : 'light'}
+        </button>
+      </div>
 
       <div className="input-group">
         <input
