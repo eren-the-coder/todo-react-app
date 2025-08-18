@@ -3,28 +3,36 @@ name: Deploy React App to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # à chaque push sur main, le workflow se déclenche
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
+      # 1️⃣ Récupérer le code
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2️⃣ Installer Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '19'
+          node-version: '18' # tu peux changer selon ta version locale
 
+      # 3️⃣ Installer les dépendances
       - name: Install dependencies
         run: npm install
 
+      # 4️⃣ Build l'application
       - name: Build
         run: npm run build
 
+      # 5️⃣ Déployer sur GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          personal_token: ${{ secrets.GH_PAT }}   # PAT que tu crées dans GitHub secrets
+          publish_dir: ./build                     # dossier React build
+          user_name: "eren-the-coder"
+          user_email: "eren-the-coder@users.noreply.github.com"
