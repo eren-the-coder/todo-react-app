@@ -4,11 +4,11 @@ A small yet complete to‑do application built with React and TypeScript. It sho
 
 ## Preview
 
-![MyTodo preview](./public/preview1.png)
-![MyTodo preview](./public/preview2.png)
+![MyTodo preview](./src/assets/screenshot1.png)
+![MyTodo preview](./src/assets/screenshot2.png)
 
 ## Features
-- Add, toggle (done/undone), and delete tasks
+- Add, toggle (done/undone), edit, and delete tasks
 - Automatic persistence in `localStorage`
 - Light/Dark theme via `ThemeContext` and a toggle button
 - Strict TypeScript typing (Task model, reducer actions, Theme)
@@ -29,18 +29,13 @@ cd todo-react-app
 
 # Install dependencies (choose one)
 npm install
-# or
-yarn
-# or
-pnpm install
+
 ```
 
 ## Development
 
 ```bash
 npm run dev
-# or: yarn dev
-# or: pnpm dev
 ```
 
 Open the URL shown in the terminal (usually http://localhost:5173).
