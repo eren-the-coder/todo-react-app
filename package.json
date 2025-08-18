@@ -1,7 +1,7 @@
 {
   "name": "todo-usereducer-ts",
   "private": true,
-  "version": "1.2.0",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,6 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -28,6 +27,5 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.0",
     "vite": "^7.1.0"
-  },
-  "homepage": "https://eren-the-coder.github.io/todo-react-app"
+  }
 }
