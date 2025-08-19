@@ -10,15 +10,12 @@ A small yet complete to‑do application built with React and TypeScript. It sho
 ## Features
 - Add, toggle (done/undone), edit, and delete tasks
 - Automatic persistence in `localStorage`
-- Light/Dark theme via `ThemeContext` and a toggle button
-- Strict TypeScript typing (Task model, reducer actions, Theme)
+- Light/Dark theme
 - Simple and responsive UI
 
 ## Tech Stack
 - React 19 + Vite
 - TypeScript
-- Context API (theme) + `useReducer` (tasks)
-- `localStorage` (persistence)
 
 ## Installation
 
