@@ -15,7 +15,7 @@ A small yet complete to‑do application built with React and TypeScript. It sho
 - Simple and responsive UI
 
 ## Tech Stack
-- React 18 + Vite
+- React 19 + Vite
 - TypeScript
 - Context API (theme) + `useReducer` (tasks)
 - `localStorage` (persistence)
